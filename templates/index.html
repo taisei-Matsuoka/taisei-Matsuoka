@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<body>
+        <h2>JS共通化サンプル</h2>
+        <div>func_a.jsより、func_b.jsの処理を呼び出し実行する</div><br>
+        <input type="button" value="テスト" onClick="pushBtn()"/><br>
+
+        
+<script>
+    var x = {{text|tojson}}; 
+    (function() {
+    function hoge() {
+        fuga = x;
+        return fuga;
+    }
+    window.hogeLib= window.hogeLib|| {};
+    window.hogeLib.hoge = hoge;
+})();
+</script>
+<script src=static/js/script.js></script>
+</body>
+</html>
